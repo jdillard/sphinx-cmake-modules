@@ -29,7 +29,7 @@ FetchContent_Declare(
   GIT_TAG        <commit-hash-or-tag>  # e.g., v0.1.0 or a specific commit hash
 )
 FetchContent_MakeAvailable(sphinx_cmake_modules)
-list(APPEND CMAKE_MODULE_PATH "${sphinx_cmake_modules_SOURCE_DIR}")
+list(APPEND CMAKE_MODULE_PATH "${sphinx_cmake_modules_SOURCE_DIR}/cmake")
 
 include(SphinxUtils)
 setup_sphinx_environment()
