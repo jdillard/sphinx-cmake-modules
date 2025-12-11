@@ -4,7 +4,7 @@ A collection of reusable CMake modules for Sphinx documentation projects.
 
 ## Available Modules
 
-### [SphinxUtils.cmake](cmake/SphinxUtils.cmake)
+### [SphinxUtils.cmake](cmake/modules/SphinxUtils.cmake)
 
 Provides utilities for integrating Sphinx documentation builds with CMake.
 
@@ -20,7 +20,7 @@ FetchContent_Declare(
   GIT_TAG        <commit-hash-or-tag>  # e.g., v0.2.0 or a specific commit hash
 )
 FetchContent_MakeAvailable(sphinx_cmake_modules)
-list(APPEND CMAKE_MODULE_PATH "${sphinx_cmake_modules_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${sphinx_cmake_modules_SOURCE_DIR}/cmake/modules")
 
 include(SphinxUtils)
 setup_sphinx_environment()
