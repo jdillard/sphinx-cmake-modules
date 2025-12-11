@@ -2,40 +2,37 @@
 # @file SphinxUtils.cmake
 # @brief Sphinx documentation utilities for CMake projects
 #
-# @description
 # This module provides functions to integrate Sphinx documentation
 # generation into CMake build systems. It handles finding the Sphinx
 # executable and creating build targets for various output formats.
 #
-# @requires Sphinx (sphinx-build) to be installed and available in PATH
+# @pre Sphinx (sphinx-build) must be installed and available in PATH
 #]]
 
 #[[
 # @var SPHINX_SOURCE
 # @brief Path to the Sphinx documentation source directory
-# @type {string}
-# @default ${CMAKE_CURRENT_SOURCE_DIR}/source
+#
+# Defaults to ${CMAKE_CURRENT_SOURCE_DIR}/source
 #]]
 set(SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 #[[
 # @var SPHINX_BUILD
 # @brief Base path for Sphinx build output directories
-# @type {string}
-# @default ${CMAKE_BINARY_DIR}
+#
+# Defaults to ${CMAKE_BINARY_DIR}
 #]]
 set(SPHINX_BUILD ${CMAKE_BINARY_DIR})
 
 #[[
 # @brief Finds and configures the Sphinx documentation generator
 #
-# @description
 # Searches for the sphinx-build executable in the system PATH.
 # If found, exports SPHINX_EXECUTABLE to the parent scope for use
 # by other functions. Raises a fatal error if Sphinx is not installed.
 #
-# @returns {void}
-# @sets SPHINX_EXECUTABLE - Path to the sphinx-build executable (PARENT_SCOPE)
+# @post SPHINX_EXECUTABLE is set to the path of sphinx-build (PARENT_SCOPE)
 # @throws FATAL_ERROR if sphinx-build is not found in the system
 #]]
 function(setup_sphinx_environment)
@@ -56,18 +53,19 @@ endfunction()
 #[[
 # @brief Creates a custom CMake target for a Sphinx documentation builder
 #
-# @description
 # Adds a custom target that invokes sphinx-build with the specified builder type.
 # The target will build documentation from SPHINX_SOURCE to SPHINX_BUILD/<builder_name>.
 # Common builder types include: html, dirhtml, singlehtml, latex, epub, man, texinfo.
 #
-# @param {string} builder_name - The Sphinx builder type (e.g., "html", "dirhtml", "man")
-# @returns {void}
-# @creates Target named <builder_name> that runs sphinx-build
+# @param builder_name The Sphinx builder type (e.g., "html", "dirhtml", "man")
 #
-# @example
+# @post A CMake target named @p builder_name is created that runs sphinx-build
+#
+# @par Example
+# @code
 # add_sphinx_builder(html)      # Creates target: html
 # add_sphinx_builder(dirhtml)   # Creates target: dirhtml
+# @endcode
 #]]
 function(add_sphinx_builder builder_name)
     add_custom_target(${builder_name}
