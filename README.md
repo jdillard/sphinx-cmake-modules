@@ -4,13 +4,9 @@ A collection of reusable CMake modules for Sphinx documentation projects.
 
 ## Available Modules
 
-### SphinxUtils.cmake
+### [SphinxUtils.cmake](cmake/SphinxUtils.cmake)
 
 Provides utilities for integrating Sphinx documentation builds with CMake.
-
-**Functions:**
-- `setup_sphinx_environment()` - Finds the sphinx-build executable
-- `add_sphinx_builder(builder_name)` - Creates a CMake target for a Sphinx builder (e.g., html, markdown, rst)
 
 ## Demo
 
@@ -18,8 +14,7 @@ See a working example in [sphinx-llms-txt](https://github.com/jdillard/sphinx-ll
 
 ## Usage with FetchContent
 
-> [!NOTE]
-> It is recommended to use a git tag or commit hash instead of `main` for stability.
+Use CMake's [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and include this project in your build:
 
 ```cmake
 include(FetchContent)
@@ -35,4 +30,7 @@ include(SphinxUtils)
 setup_sphinx_environment()
 add_sphinx_builder(html)
 ```
+
+> [!NOTE]
+> It is recommended to use a git tag or commit hash instead of `main` for stability.
 
