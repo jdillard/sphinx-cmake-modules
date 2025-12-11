@@ -8,10 +8,6 @@ A collection of reusable CMake modules for Sphinx documentation projects.
 
 Provides utilities for integrating Sphinx documentation builds with CMake.
 
-## Demo
-
-See a working example in [sphinx-llms-txt](https://github.com/jdillard/sphinx-llms-txt/blob/main/CMakeLists.txt).
-
 ## Usage with FetchContent
 
 Use CMake's [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and include this project in your build:
@@ -33,4 +29,8 @@ add_sphinx_builder(html)
 
 > [!NOTE]
 > It is recommended to use a git tag or commit hash instead of `main` for stability.
+
+## Demo
+
+See a working example in [sphinx-llms-txt](https://github.com/jdillard/sphinx-llms-txt/blob/main/CMakeLists.txt).
 
